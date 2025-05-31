@@ -4,7 +4,7 @@ from tkinter import filedialog, messagebox
 # Create main window
 window = tk.Tk()
 window.title("Digital Signage by Integration Department PTPKM")
-window.geometry("700x500")
+window.geometry("750x500")
 
 # Create a frame to hold all content
 main_frame = tk.Frame(window)
@@ -22,15 +22,32 @@ labeldigital.pack()
 button_frame1 = tk.Frame(main_frame)
 button_frame1.pack(fill="x")
 
-signage_button = tk.Button(
+signage_upload_button = tk.Button(
     button_frame1, 
     text="Upload file for \nDigital Signage", 
     font=("Times New Roman", 12),
     width=20,
     height=2,
-    command=lambda: messagebox.showinfo("Info", "Digital Signage button clicked")
+    command=lambda: messagebox.showinfo("Info", "Digital Signage upload button clicked")
 )
-signage_button.pack(side="left", padx=20, pady=5)
+signage_upload_button.pack(side="left", padx=10, pady=5)
+
+# Sign button and label for Digital Signage
+def sign_signage_file():
+    signage_sign_label.config(text="File signed successfully")
+
+signage_sign_button = tk.Button(
+    button_frame1, 
+    text="Sign File", 
+    font=("Times New Roman", 12),
+    width=12,
+    height=2,
+    command=sign_signage_file
+)
+signage_sign_button.pack(side="left", padx=5, pady=5)
+
+signage_sign_label = tk.Label(button_frame1, text="", font=("Times New Roman", 10), fg="green")
+signage_sign_label.pack(side="left", padx=5, pady=5)
 
 # Horizontal separator
 separator = tk.Frame(main_frame, height=2, bg="black", width=600)
@@ -48,15 +65,32 @@ labelverification.pack()
 button_frame2 = tk.Frame(main_frame)
 button_frame2.pack(fill="x")
 
-verification_button = tk.Button(
+verification_upload_button = tk.Button(
     button_frame2, 
     text="Upload file for \nDigital Verification", 
     font=("Times New Roman", 12),
     width=20,
     height=2,
-    command=lambda: messagebox.showinfo("Info", "Digital Verification button clicked")
+    command=lambda: messagebox.showinfo("Info", "Digital Verification upload button clicked")
 )
-verification_button.pack(side="left", padx=20, pady=5)
+verification_upload_button.pack(side="left", padx=10, pady=5)
+
+# Verify button and label for Digital Verification
+def verify_verification_file():
+    verification_verify_label.config(text="File verified successfully")
+
+verification_verify_button = tk.Button(
+    button_frame2, 
+    text="Verify File", 
+    font=("Times New Roman", 12),
+    width=12,
+    height=2,
+    command=verify_verification_file
+)
+verification_verify_button.pack(side="left", padx=5, pady=5)
+
+verification_verify_label = tk.Label(button_frame2, text="", font=("Times New Roman", 10), fg="green")
+verification_verify_label.pack(side="left", padx=5, pady=5)
 
 # Run the app
 window.mainloop()
